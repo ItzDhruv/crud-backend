@@ -12,10 +12,8 @@ const allowedOrigins = [
   'https://frontend-nine-sand-28.vercel.app'
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true, // If you're using cookies or auth headers
-}));
+app.use(cors());
+
 
 const Contact = require('./routes/Contact');
 
