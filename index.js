@@ -6,7 +6,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = 3000;
-app.use(cors());
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://frontend-nine-sand-28.vercel.app'
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // If you're using cookies or auth headers
+}));
+
 const Contact = require('./routes/Contact');
 
 app.use('/api', Contact);
